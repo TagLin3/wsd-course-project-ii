@@ -1,0 +1,31 @@
+<% layout("./layouts/layout.eta") %>
+<h1><%=it.topic.name%></h1>
+
+<%if (it.validationErrors) {%>
+<ul>
+    <%Object.keys(it.validationErrors).forEach((validationErrorKey) => {%>
+        <%Object.values(it.validationErrors[validationErrorKey]).forEach((error) => {%>
+            <li><%=error%></li>
+        <%});%>
+    <%});%>
+</ul>
+<%}%>
+
+<h2>Add a question:</h2>
+<form method="POST" action="/topics/<%=it.topic.id%>/questions">
+    <textarea name="question_text"><%=it.question_text ? it.question_text : ""%></textarea>
+    <input type="submit" value="Add question!"/>
+</form>
+
+<h2>Existing questions:</h2>
+<%if (it.questions && it.questions.length > 0) {%>
+<ul>
+<%it.questions.forEach((question) => {%>
+    <li>
+        <a href="/topics/<%=it.topic.id%>/questions/<%=question.id%>"><%=question.question_text%><a>
+    </li>
+<%});%>
+</ul>
+<%} else {%>
+<p>No questions yet.</p>
+<%}%>

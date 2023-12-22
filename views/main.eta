@@ -1,0 +1,23 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Drill And Practice Application</h1>
+
+<p>This application is intended for practicing multiple choice questions.</p>
+<p>You can choose a topic to add questions to and add options for the questions. Currently every question needs to have exactly one correct answer. To choose a topic to add questions to, log in or register and then click "Topics" at the top.</p>
+<p>To practice questions added by users, log in or register and then click "Quiz" at the top.</p>
+</br>
+<p>To start using the service: <a href="/auth/register">Register here</a></p>
+<p>Or if you're already registered: <a href="/auth/login">Login</a></p>
+</br>
+<h2>Statistics:</h2>
+<ul>
+    <li>
+        Total number of topics: <%=it.topicsAmount%>
+    </li>
+    <li>
+        Total number of questions: <%=it.questionsAmount%>
+    </li>
+    <li>
+        Total number of submitted answers: <%=it.answersAmount%>
+    </li>
+</ul>
