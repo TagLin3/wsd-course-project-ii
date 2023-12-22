@@ -17,7 +17,7 @@ router.post("/topics/:id/delete", topicController.deleteTopic);
 router.get("/topics/:id", questionController.listQuestions);
 router.post("/topics/:id/questions", questionController.addQuestion);
 router.get("/topics/:id/questions/:qId", optionContoller.listOptions);
-router.post("/topics/:id/questions/:qId", optionContoller.addOption);
+router.post("/topics/:id/questions/:qId/options", optionContoller.addOption);
 router.post(
   "/topics/:id/questions/:qId/delete",
   questionController.deleteQuestion,
